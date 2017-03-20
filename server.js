@@ -6,13 +6,13 @@ express()
   .get('/', home)
   .get('*', error)
   .listen(3000, function() {
-    console.log('started on port 3000!');
+    console.log('started on port 3000!'); // eslint-disable-line no-console
     if (art) {
       art.font('Funda', 'Doom', 'magenta').font('  API', 'Doom', 'green', function(data) {
-        console.log(data);
+        console.log(data); // eslint-disable-line no-console
       });
     } else {
-      console.log('Funda API');
+      console.log('Funda API'); // eslint-disable-line no-console
     }
   });
 
@@ -27,7 +27,7 @@ function home(req, res) {
           <div class="avatar"><img src="/static/assets/img/fundapi-avatar.svg" /></div>
           <header><h1>Fundapi</h1></header>
           <p>Welkom op funda Chat.API</p>
-          <p>Wat is de postcode waar u naar wilt zoeken?</p>
+          <p>Wat is de stad waar u naar wilt zoeken?</p>
         </section>
       `);
   }
@@ -69,8 +69,8 @@ function respond(res, body) {
     '</section>',
     '<footer>',
     '<form id="chat-form">',
-    '<input id="chatInput" name="chatInput" type="text" placeholder="type something..." autocomplete="off"/>',
-    '<input type="submit" value="send" />',
+    '<input id="chatInput" name="chatInput" type="text" placeholder="type something..." autocomplete="off" disabled />',
+    '<input type="submit" value="send" disabled/>',
     ''
   ].join('\n'));
 }
