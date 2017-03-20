@@ -1,6 +1,6 @@
 {
   "name": "funda-server-side",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Project for Funda, but this time rendered server side",
   "main": "sever.js",
   "scripts": {
