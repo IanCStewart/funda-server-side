@@ -27,6 +27,7 @@ function home(req, res) {
           <div class="avatar"><img src="/static/assets/img/fundapi-avatar.svg" /></div>
           <header><h1>Fundapi</h1></header>
           <p>Welkom op funda Chat.API</p>
+          <p>Wat is de postcode waar u naar wilt zoeken?</p>
         </section>
       `);
   }
