@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Project for Funda, but this time rendered server side",
   "main": "sever.js",
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IanCStewart/funda-server-side.git"
@@ -16,7 +18,11 @@
   },
   "homepage": "https://github.com/IanCStewart/funda-server-side#readme",
   "devDependencies": {
-    "eslint": "^3.15.0"
+    "ascii-art": "^1.4.2",
+    "eslint": "^3.15.0",
+    "nodemon": "^1.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
