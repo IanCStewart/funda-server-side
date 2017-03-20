@@ -1,0 +1,22 @@
+{
+  "name": "funda-server-side",
+  "version": "1.0.0",
+  "description": "Project for Funda, but this time rendered server side",
+  "main": "sever.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanCStewart/funda-server-side.git"
+  },
+  "keywords": [],
+  "author": "Ian Stewart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IanCStewart/funda-server-side/issues"
+  },
+  "homepage": "https://github.com/IanCStewart/funda-server-side#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0"
+  },
+  "dependencies": {}
+}
