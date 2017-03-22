@@ -159,16 +159,53 @@ main {
   margin-bottom: .5rem;
 }
 
-#chat .message form label {
+#chat .message form fieldset {
+  margin-bottom: 1rem;
+}
+
+#chat .message form fieldset section {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+}
+
+#chat .message form label {
+  margin: 0 .5rem;
+  margin-bottom: .25rem;
+  padding: 1rem;
+  background: var(--color-dark-blue);
+  transition: all .3s ease-in-out;
+}
+
+#chat .message form input:checked + label {
+  background: var(--color-orange);
+}
+
+#chat .message form input {
+  font-size: var(--text-body);
+  padding: calc(1.6rem / 2);
 }
 
 #chat .message form input[type="radio"] {
   opacity: 0;
   position: absolute;
   z-index: -999;
+}
+
+#chat .message form input[type="text"] {
+  appearance: none;
+  width: 100%;
+  border: none;
+}
+
+#chat .message form input[type="submit"] {
+  max-width: 20rem;
+  width: 100%;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  border: none;
+  margin: 0 auto;
 }
 
 #chat .message.user {
