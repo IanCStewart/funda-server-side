@@ -20,7 +20,7 @@ express()
   .listen(3000, log);
 
 function home(req, res) {
-  if (req.query.location) {
+  if (req.query.location && req.query.type) {
     const options = req.query.outdoor ? `/${req.query.outdoor}` : '';
     fetch(fundaEndpoint(req.query.type, req.query.location, options))
       .then(data => data.json())
