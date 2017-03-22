@@ -17,7 +17,7 @@ if (!googleKey) {
 }
 
 const fundaEndpoint = (type, address, options, page, size) => `http://funda.kyrandia.nl/feeds/Aanbod.svc/json/${fundaKey}/?type=${type}&zo=/${address}/+0.001km${options}/&page=${page ? page : '1'}&pagesize=${size ? size : '25'}`;
-const googleEndpoint = (lat, long) => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${googleKey}&result_type=street_address|locality`
+const googleEndpoint = (lat, long) => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${googleKey}&result_type=street_address|locality`;
 
 express()
   .use('/static', express.static('public', {maxAge: '31d'}))
