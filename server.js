@@ -6,16 +6,23 @@ const html = require('./lib/html');
 require('dotenv').config();
 
 const fundaKey = process.env.FUNDA_KEY;
+const googleKey = process.env.GOOGLE_KEY;
 
 if (!fundaKey) {
   throw new Error('Missing `FUNDA_KEY` in env.');
 }
 
+if (!googleKey) {
+  throw new Error('Missing `GOOGLE_KEY` in env.');
+}
+
 const fundaEndpoint = (type, address, options, page, size) => `http://funda.kyrandia.nl/feeds/Aanbod.svc/json/${fundaKey}/?type=${type}&zo=/${address}/+0.001km${options}/&page=${page ? page : '1'}&pagesize=${size ? size : '25'}`;
+const googleEndpoint = (lat, long) => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${googleKey}&result_type=street_address|locality`
 
 express()
   .use('/static', express.static('public', {maxAge: '31d'}))
   .get('/', home)
+  .get('/api/', api)
   .get('*', error)
   .listen(3000, log);
 
@@ -48,6 +55,28 @@ function makeHtml(json, extraHtml) {
   });
   extraHtml ? houses += extraHtml : null;
   return houses;
+}
+
+function api(req, res) {
+  if (req.query.location && req.query.type) {
+    const options = req.query.outdoor ? `/${req.query.outdoor}` : '';
+    const location = req.query.location.replace(/ /g, '-');
+    fetch(fundaEndpoint(req.query.type, location, options))
+      .then(data => data.json())
+      .then(json => callback(json))
+      .catch(err => error(req, res, err));
+  }
+
+  if (req.query.lat && req.query.long) {
+    fetch(googleEndpoint(req.query.lat, req.query.long))
+      .then(data => data.json())
+      .then(json => callback(json))
+      .catch(err => error(req, res, err));
+  }
+
+  function callback(data) {
+    res.send(data);
+  }
 }
 
 function error(req, res, err) {
