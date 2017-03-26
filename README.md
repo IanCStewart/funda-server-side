@@ -40,3 +40,13 @@ ______                    _            ___  ______  _____
 ```
 
 If `npm start` throws an `error` please check if port `3000` is free.
+
+## Todo
+
+- [ ] Refactor app.js to modules.
+- [ ] Browserify app.js
+- [ ] Improve Performace
+  - [ ] Gzip
+  - [ ] Critical CSS
+  - [ ] Image optim
+  - [ ] And more...
