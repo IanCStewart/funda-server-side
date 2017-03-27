@@ -7,7 +7,7 @@ module.exports = {
       fetch(url)
       .then(d => d.json())
       .then(d => resolve(d))
-      .catch(view.section.loading());
+      .catch(err => view.section.loading(err));
     });
   }
 };

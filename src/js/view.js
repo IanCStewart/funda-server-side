@@ -1,6 +1,4 @@
 /* eslint-env browser */
-module.exports = { chat, section, location, store };
-
 const appSettings = require('./app-settings');
 const request = require('./request');
 
@@ -296,3 +294,5 @@ const store = {
     : chat.listen();
   }
 };
+
+module.exports = { chat, section, location, store };
