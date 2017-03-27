@@ -23,6 +23,7 @@ express()
   .use(express.static('public', {maxAge: '31d'}))
   .get('/', home)
   .get('/api/', api)
+  .get('/offline', offline)
   .get('*', error)
   .listen(3000, log);
 
@@ -77,6 +78,10 @@ function api(req, res) {
   function callback(data) {
     res.send(data);
   }
+}
+
+function offline(req, res) {
+  res.send(html.offline());
 }
 
 function error(req, res, err) {
