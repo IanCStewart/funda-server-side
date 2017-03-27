@@ -20,7 +20,7 @@ const fundaEndpoint = (type, address, options, page, size) => `http://funda.kyra
 const googleEndpoint = (lat, long) => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${googleKey}&result_type=street_address|locality`;
 
 express()
-  .use('/static', express.static('public', {maxAge: '31d'}))
+  .use(express.static('public', {maxAge: '31d'}))
   .get('/', home)
   .get('/api/', api)
   .get('*', error)

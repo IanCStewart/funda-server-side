@@ -153,7 +153,7 @@ const section = {
   renderChatMessage(html, user) {
     appSettings.chat.innerHTML += `
       <section class="message ${user}">
-        <div class="avatar"><img src="/static/assets/img/${user}-avatar.svg" /></div>
+        <div class="avatar"><img src="/assets/img/${user}-avatar.svg" /></div>
         <header><h1>${user}</h1></header>
         <p>${html}</p>
       </section>`;
@@ -167,7 +167,7 @@ const section = {
     data.Objects.length > 0
     ? appSettings.chat.innerHTML += `
         <section class="message house">
-          <div class="avatar"><img src="/static/assets/img/fundapi-avatar.svg" /></div>
+          <div class="avatar"><img src="/assets/img/fundapi-avatar.svg" /></div>
           <header><h1>${data.Objects[dataNumber].Adres}</h1></header>
           <p>
             <img class="house-img" src="${data.Objects[dataNumber].FotoLarge}"/>
@@ -176,7 +176,7 @@ const section = {
         </section>`
     : appSettings.chat.innerHTML += `
         <section class="message funda">
-          <div class="avatar"><img src="/static/assets/img/fundapi-avatar.svg" /></div>
+          <div class="avatar"><img src="/assets/img/fundapi-avatar.svg" /></div>
           <header><h1>API</h1></header>
           <p>
             Er zijn geen huizen die aan de volgende criteria voldoen. ${data.Metadata.Omschrijving}.
@@ -200,7 +200,7 @@ const section = {
     document.querySelector('#loading') === null
     ? appSettings.chat.innerHTML += `
       <section id="loading">
-        <div class="avatar"><img src="/static/assets/img/fundapi-avatar.svg" /></div>
+        <div class="avatar"><img src="/assets/img/fundapi-avatar.svg" /></div>
         <h1>Een moment we zijn aan het laden...</h1>
         <div></div>
         <p>Als de lader blijft staan, controleer dan uw connectie met het internet.</p>
