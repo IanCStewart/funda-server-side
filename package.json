@@ -4,7 +4,9 @@
   "description": "Project for Funda, but this time rendered server side",
   "main": "sever.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "browserify src/js/app.js -o public/funda.js",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/IanCStewart/funda-server-side#readme",
   "devDependencies": {
     "ascii-art": "^1.4.2",
+    "browserify": "^14.1.0",
     "eslint": "^3.15.0",
     "nodemon": "^1.11.0"
   },
