@@ -15,15 +15,31 @@ self.addEventListener('install', event => event.waitUntil(
 
 self.addEventListener('fetch', function(event) {
   const request = event.request;
-  event.respondWith(
-    fetch(event.request)
-      .catch(err => fetchCoreFile(request.url)) //eslint-disable-line no-unused-vars
-      .catch(err => fetchCoreFile('/offline/')) //eslint-disable-line no-unused-vars
-  );
+  if(request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => cachePage(request, response))
+        .catch(err => fetchCoreFile(request.url)) //eslint-disable-line no-unused-vars
+        .catch(err => fetchCoreFile('/offline/')) //eslint-disable-line no-unused-vars
+    );
+  } else {
+    event.respondWith(
+      fetch(request)
+        .catch(err => fetchCoreFile(request.url)) //eslint-disable-line no-unused-vars
+    );
+  }
 });
 
 function fetchCoreFile(url) {
   return caches.open('funda-v1-core')
     .then(cache => cache.match(url))
     .then(response => response ? response : Promise.reject());
+}
+
+
+function cachePage(request, response) {
+  const clonedResponse = response.clone();
+  caches.open('funda-v1-pages')
+    .then(cache => cache.put(request, clonedResponse));
+  return response;
 }
