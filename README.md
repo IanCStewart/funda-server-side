@@ -77,4 +77,12 @@ $ npm run start-dev
 - [ ] Make fundapi smarter through could be possible answer with levenshtein-edit-distance
 - [ ] Make offline page more usefull instead of > (killed the dino!)
 
-## Audits
+## Features
+
+- Works without JS
+- Works Offline serviceWorker
+- Server: `express`
+- Data from Funda API
+- Location from [`Geo web API`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation) & [`Google Geocoding API`](https://developers.google.com/maps/documentation/geocoding/intro)
+- PageSpeed Insights 99/100
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) 100/100 (Ignored: Using modern protocols & Avoiding APIs that harm the user experience), otherwise 87/100
