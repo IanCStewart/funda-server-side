@@ -8,6 +8,7 @@
     "start-dev": "nodemon server.js",
     "build": "browserify --node src/js/app.js -o public/funda.js",
     "watch-build": "watchify src/js/app.js -d -o public/funda.js -v",
+    "minify": "esmangle public/funda.js -o public/funda.min.js",
     "lint": "eslint src"
   },
   "repository": {
@@ -25,6 +26,7 @@
     "ascii-art": "^1.4.2",
     "browserify": "^14.1.0",
     "eslint": "^3.15.0",
+    "esmangle": "^1.0.1",
     "nodemon": "^1.11.0",
     "watchify": "^3.9.0"
   },
