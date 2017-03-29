@@ -2,6 +2,7 @@ const express = require('express');
 const art = require('ascii-art');
 const fetch = require('node-fetch');
 const html = require('./lib/html');
+const compression = require('compression');
 
 require('dotenv').config();
 
@@ -20,6 +21,7 @@ const fundaEndpoint = (type, address, options, page, size) => `http://funda.kyra
 const googleEndpoint = (lat, long) => `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=${googleKey}&result_type=street_address|locality`;
 
 express()
+  .use(compression({ threshold: 0, filter: () => true }))
   .use(express.static('public', {maxAge: '31d'}))
   .get('/', home)
   .get('/api/', api)
