@@ -19,13 +19,14 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
       fetch(request)
         .then(response => cachePage(request, response))
-        .catch(err => fetchCoreFile(request.url)) //eslint-disable-line no-unused-vars
+        .catch(err => getCachedPage(request)) //eslint-disable-line no-unused-vars
         .catch(err => fetchCoreFile('/offline/')) //eslint-disable-line no-unused-vars
     );
   } else {
     event.respondWith(
       fetch(request)
         .catch(err => fetchCoreFile(request.url)) //eslint-disable-line no-unused-vars
+        .catch(err => fetchCoreFile('/offline/')) //eslint-disable-line no-unused-vars
     );
   }
 });
@@ -36,6 +37,11 @@ function fetchCoreFile(url) {
     .then(response => response ? response : Promise.reject());
 }
 
+function getCachedPage(request) {
+  return caches.open('funda-v1-pages')
+    .then(cache => cache.match(request))
+    .then(response => response ? response : Promise.reject());
+}
 
 function cachePage(request, response) {
   const clonedResponse = response.clone();
