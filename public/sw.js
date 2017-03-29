@@ -4,7 +4,6 @@ self.addEventListener('install', event => event.waitUntil(
     .then(cache => cache.addAll([
       '/offline/',
       '/style.css',
-      '/reset.min.css',
       '/assets/img/chat-background.jpg',
       '/assets/img/logo.svg',
       '/assets/img/fundapi-avatar.svg',
