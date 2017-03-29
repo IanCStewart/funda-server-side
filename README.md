@@ -42,10 +42,6 @@ $ npm start
 
 Terminal should return something like this:
 ```
-[nodemon] 1.11.0
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching: *.*
-[nodemon] starting `node server.js`
 started on port 3000!
 ______                    _            ___  ______  _____
 |  ___|                  | |          / _ \ | ___ \|_   _|
