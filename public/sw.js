@@ -8,6 +8,7 @@ self.addEventListener('install', event => event.waitUntil(
       '/assets/img/chat-background.jpg',
       '/assets/img/logo.svg',
       '/assets/img/fundapi-avatar.svg',
+      '/assets/img/user-avatar.svg',
       '/funda.js'
     ]))
     .then(self.skipWaiting())
